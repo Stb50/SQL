@@ -1,0 +1,39 @@
+--Create database using NBA players name, team, college and championships
+
+CREATE TABLE nba_players (id INTEGER PRIMARY KEY, name TEXT, team TEXT, college TEXT, championships INTEGER);
+
+INSERT into nba_players VALUES (1, "Franz Wagner", "Magic", "Michigan", 0);
+INSERT into nba_players VALUES (2, "Kyle Lowry", "Heat", "Villanova", 1);
+INSERT into nba_players VALUES (3, "Robert Horry", "Rockets", "Alabama", 7);
+INSERT into nba_players VALUES (4, "Michael Jordan", "Bulls", "Michigan", 0);
+INSERT into nba_players VALUES (5, "Vince Carter", "Raptors", "North Carolina", 0);
+INSERT into nba_players VALUES (6, "Bill Russell", "Celtics", "San Francisco", 11);
+INSERT into nba_players VALUES (7, "Magic Johnson", "Lakers", "Michigan State", 5);
+INSERT into nba_players VALUES (8, "Stephen Curry", "Warriors", "Davidson", 4);
+INSERT into nba_players VALUES (9, "Larry Bird", "Celtics", "Indiana State", 3);
+INSERT into nba_players VALUES (10, "Carmelo Anthony", "Knicks", "Syracuse", 0);
+INSERT into nba_players VALUES (11, "Cole Anthony", "Magic", "North Carolina", 0);
+INSERT into nba_players VALUES (12, "Marcus Smart", "Celtics", "Okalahoma State", 0);
+
+--Display players with more than 4 championships
+SELECT team FROM nba_players WHERE championships > 4;
+
+--Display players who play for the Magic
+SELECT name FROM nba_players WHERE team = "Magic";
+
+--Display name of players who went to Michigan State
+SELECT name FROM nba_players WHERE college = "Michigan State";
+
+--Display total championships among all players
+SELECT SUM(championships) FROM nba_players;
+
+--Display the average championships among players who played for the Celtics
+SELECT AVG(Championships) FROM nba_players WHERE team = "Celtics";
+
+--Display players who either attended Alabama or play by the Celtics and arranged then by championships
+SELECT * FROM nba_players WHERE college = "Alabama" OR team = "Celtics" ORDER BY championships;
+
+--Display the total championships from nba players.  Grouping them by team and displaying the players with greater than 3 championships.
+SELECT team, SUM(championships) AS total_titles FROM nba_players
+    GROUP BY team
+    HAVING total_titles > 3;
