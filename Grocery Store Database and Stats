@@ -1,0 +1,28 @@
+-- Create grocery store database 
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price TEXT);
+
+INSERT INTO store VALUES (1, "Bananas", "Produce", 4);
+INSERT INTO store VALUES (2, "Chicken", "Deli", 6);
+INSERT INTO store VALUES (3, "Pasta", "Dry Foods", 3);
+INSERT INTO store VALUES (4, "Cheese", "Dairy", 2);
+INSERT INTO store VALUES (5, "Cucumber", "Produce", 4);
+INSERT INTO store VALUES (6, "Pop Tarts", "Dry Foods", 5);
+INSERT INTO store VALUES (7, "Macaroni Salad", "Deli", 2);
+INSERT INTO store VALUES (8, "Sour Cream", "Dairy", 3);
+INSERT INTO store VALUES (9, "Potatoes", "Produce", 8);
+INSERT INTO store VALUES (10, "Cereal", "Dry Foods", 6);
+INSERT INTO store VALUES (11, "Cream Cheese", "Dairy", 2);
+INSERT INTO store VALUES (12, "Salami", "Deli", 5);
+INSERT INTO store VALUES (13, "Bell Pepper", "Produce", 3);
+INSERT INTO store VALUES (14, "Carrots", "Produce", 1);
+INSERT INTO store VALUES (15, "Pancake Mix", "Dry Foods", 7);
+
+--Display database ordered by price
+SELECT * FROM store ORDER BY price;
+
+-- Display the average price from the Dry Food section of the store
+SELECT AVG(price) FROM STORE WHERE section = "Dry Foods";
+
+--Display the total price of all items from the Deli section of the store
+SELECT SUM(price) FROM store WHERE section = "Deli"
