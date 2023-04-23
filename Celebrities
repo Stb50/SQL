@@ -1,0 +1,27 @@
+--Created 2 tables
+
+CREATE TABLE people (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, email TEXT, resides TEXT);
+
+INSERT INTO people VALUES (1, "George", "Clooney", "Clooney@famous.net", "Italy"); 
+INSERT INTO people VALUES (2, "Jennifer", "Lawrence", "Lawrence@famous.net", "Beverley Hills");
+INSERT INTO people VALUES (3, "Jennifer", "Anniston", "Anniston@famous.net", "Los Angeles");
+INSERT INTO people VALUES (4, "Denzel", "Washington", "Washington@famous.net", "Los Angeles");
+INSERT INTO people VALUES (5, "Will", "Smith", "Smith@famous.net", "Los Angeles");
+INSERT INTO people VALUES (6, "Michael", "BJordan", "BJordan@famous.net", "Los Angeles");
+
+
+CREATE TABLE movies (id Integer Primary Key, last_name TEXT, movie TEXT);
+
+INSERT INTO movies VALUES (1, "Clooney", "Oceans 11");
+INSERT INTO movies VALUES (2, "Lawrence", "Mother");
+INSERT INTO movies VALUES (3, "Anniston", "The Break Up");
+Insert INTO movies VALUES (4, "Washington", "DejaVu");
+Insert INTO movies VALUES (5, "Smith", "Independence Day");
+Insert INTO  movies VALUES (6, "BJordan", "Creed");
+
+
+--- JOINED tables to include actors name, email and movie
+SELECT people.first_name, people.email, movies.movie
+FROM people
+JOIN movies
+ON people.last_name = movies.last_name;
